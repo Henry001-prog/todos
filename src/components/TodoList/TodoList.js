@@ -3,8 +3,8 @@ import { View, StyleSheet, Text } from 'react-native';
 
 import { connect } from 'react-redux';
 
-import TodoListItem from './TodoListItem';
-import { toggleTodo, setEditingTodo } from '../actions';
+import TodoListItem from '../TodoListItem';
+import { toggleTodo, setEditingTodo } from '../../actions';
 
 // import { Container } from './styles';
 

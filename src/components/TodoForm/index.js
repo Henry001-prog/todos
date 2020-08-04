@@ -2,8 +2,10 @@ import React from 'react';
 import {View, StyleSheet, Button} from 'react-native';
 import { connect } from 'react-redux';
 
-import Input from './Input';
-import { addTodo, setTodoText, updateTodo } from '../actions';
+import Input from '../Input';
+import { addTodo, setTodoText, updateTodo } from '../../actions';
+
+import { FormContainer, InputContainer, ButtonContainer } from './styles';
 
 class TodoForm extends React.Component {
     onChangeText(text) {
@@ -22,25 +24,25 @@ class TodoForm extends React.Component {
     render() {
         const { text, id } = this.props.todo;
         return (
-            <View style={styles.formContainer}>
-                <View style={styles.inputContainer}>
+            <FormContainer>
+                <InputContainer>
                     <Input
                         onChangeText={text => this.onChangeText(text)}
                         value={text}
                     />
-                </View>
-                <View style={styles.buttonContainer}>
+                </InputContainer>
+                <ButtonContainer>
                     <Button 
                         onPress={() => this.onPress()}
                         title={id ? "save" : "add"}
                     />
-                </View>
-            </View>
+                </ButtonContainer>
+            </FormContainer>
         );
     }
 }
 
-const styles = StyleSheet.create({
+/*const styles = StyleSheet.create({
     formContainer: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
@@ -51,7 +53,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flex: 1,
     },
-});
+});*/
 
 //const mapDispatchToProps = dispatch => {
 //    return {

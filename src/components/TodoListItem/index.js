@@ -1,23 +1,21 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Line, LineText } from './styles';
 
 
 const TodoListItem = ({ todo, onPressTodo, onLongPressTodo }) => (
         <TouchableOpacity 
             onPress={onPressTodo}
             onLongPress={onLongPressTodo}>
-            <View style={styles.line}>
-                <Text style={[
-                    styles.lineText,
-                    todo.done ? styles.lineThrough : null
-                ]}>   
+            <Line>
+                <LineText done={todo.done}>   
                     { todo.text }
-                </Text>
-            </View>
+                </LineText>
+            </Line>
         </TouchableOpacity>
     );
 
-const styles = StyleSheet.create({
+/*const styles = StyleSheet.create({
     line: {
         height: 60,
         borderBottomWidth: 1,
@@ -33,13 +31,6 @@ const styles = StyleSheet.create({
     lineThrough: {
         textDecorationLine: 'line-through'
     },
-    avatar: {
-        aspectRatio: 1,
-        flex: 1,
-
-        marginLeft: 15,
-        borderRadius: 50,
-    },
-})
+})*/
 
 export default TodoListItem;
